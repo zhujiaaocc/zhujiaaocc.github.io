@@ -20,7 +20,10 @@
 <meta property="og:image" content="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332398-0.jpg">
 <meta property="og:image" content="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332653-0.jpg">
 <meta property="og:image" content="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332798-0.jpg">
-<meta property="og:updated_time" content="2019-07-15T07:25:48.680Z">
+<meta property="og:image" content="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332300-0.jpg">
+<meta property="og:image" content="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332708-0.jpg">
+<meta property="og:image" content="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332897-0.jpg">
+<meta property="og:updated_time" content="2019-07-15T07:35:18.080Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用树莓派实现实时的人脸检测">
 <meta name="twitter:description" content="本文介绍了如何在树莓派上，使用 OpenCV 和 Python 完成人脸检测项目。该项目不仅描述了识别人脸所需要的具体步骤，同时还提供了很多扩展知识。此外，该项目并不需要读者了解详细的人脸识别理论知识，因此初学者也能轻松跟着步骤实现。 项目所需设备硬件：树莓派3树莓派摄像头模块（PiCam） 语言和库:OpenCVPython 3 本文主要讲述如何使用 PiCam 实现实时人脸识别，如下图所示:">
@@ -133,7 +136,7 @@
 
 <p>要完成该程序，你必须在键盘上按 [ESC] 键。在按 [ESC] 键之前，先鼠标点击视频窗口。<br><img src="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332798-0.jpg" alt="p5"><br>上图展示了结果。</p>
 <p>想更多地了解 OpenCV，请<a href="https://pythonprogramming.net/loading-video-python-opencv-tutorial/" target="_blank" rel="noopener">查看该教程</a></p>
-<p>##第4步：人脸检测</p>
+<p>第4步：人脸检测</p>
 <p>人脸识别的最基础任务是「人脸检测」。你必须首先「捕捉」人脸（第 1 阶段）才能在未来与捕捉到的新人脸对比时（第 3 阶段）识别它。<br>最常见的人脸检测方式是使用「Haar 级联分类器」。使用基于 Haar 特征的级联分类器的目标检测是 Paul Viola 和 Michael Jones 2001 年在论文《Rapid Object Detection using a Boosted Cascade of Simple Features》中提出的一种高效目标检测方法。这种机器学习方法基于大量正面、负面图像训练级联函数，然后用于检测其他图像中的对象。这里，我们将用它进行人脸识别。最初，该算法需要大量正类图像（人脸图像）和负类图像（不带人脸的图像）来训练分类器。然后我们需要从中提取特征。好消息是 OpenCV 具备训练器和检测器。如果你想要训练自己的对象分类器，如汽车、飞机等，你可以使用 OpenCV 创建一个。<br>详情参见：<a href="https://docs.opencv.org/3.3.0/dc/d88/tutorial_traincascade.html" target="_blank" rel="noopener">Cascade Classifier Training</a><br>如果不想创建自己的分类器，OpenCV 也包含很多预训练分类器，可用于人脸、眼睛、笑容等的检测。相关的 XML 文件可从该目录下载：<a href="https://github.com/Mjrovai/OpenCV-Face-Recognition/blob/master/FaceDetection/faceDetection.py" target="_blank" rel="noopener">haarcascades</a><br>下面，我们就开始用 OpenCV 创建人脸检测器吧！</p>
 <p>从我的 GitHub 下载文件 <a href="https://github.com/Mjrovai/OpenCV-Face-Recognition/blob/master/FaceDetection/faceDetection.py" target="_blank" rel="noopener">faceDetection.py</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import cv2</span><br><span class="line"> </span><br><span class="line">faceCascade = cv2.CascadeClassifier(&apos;Cascades/haarcascade_frontalface_default.xml&apos;)</span><br><span class="line"> </span><br><span class="line">cap = cv2.VideoCapture(0)</span><br><span class="line">cap.set(3,640) # set Width</span><br><span class="line">cap.set(4,480) # set Height</span><br><span class="line"> </span><br><span class="line">while True:</span><br><span class="line">    ret, img = cap.read()</span><br><span class="line">    img = cv2.flip(img, -1)</span><br><span class="line">    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span><br><span class="line">    faces = faceCascade.detectMultiScale(</span><br><span class="line">        gray,     </span><br><span class="line">        scaleFactor=1.2,</span><br><span class="line">        minNeighbors=5,     </span><br><span class="line">        minSize=(20, 20)</span><br><span class="line">    )</span><br><span class="line"> </span><br><span class="line">    for (x,y,w,h) in faces:</span><br><span class="line">        cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)</span><br><span class="line">        roi_gray = gray[y:y+h, x:x+w]</span><br><span class="line">        roi_color = img[y:y+h, x:x+w]  </span><br><span class="line"> </span><br><span class="line">    cv2.imshow(&apos;video&apos;,img)</span><br><span class="line"> </span><br><span class="line">    k = cv2.waitKey(30) &amp; 0xff</span><br><span class="line">    if k == 27: # press &apos;ESC&apos; to quit</span><br><span class="line">        break</span><br><span class="line"> </span><br><span class="line">cap.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
@@ -142,11 +145,26 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">faceCascade = cv2.CascadeClassifier(&apos;Cascades/haarcascade_frontalface_default.xml&apos;)</span><br></pre></td></tr></table></figure>
 
 <p>这行代码可以加载「分类器」（必须在项目文件夹下面的 Cascades/目录中）。然后，我们在在循环内部调<br>摄像头，并以 grayscale 模式加载我们的输入视频。现在，我们必须调用分类器函数，向其输入一些非常重<br>要的参数，如比例因子、邻近数和人脸检测的最小尺寸。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">faces = faceCascade.detectMultiScale(</span><br><span class="line">        gray,     </span><br><span class="line">        scaleFactor=1.2,</span><br><span class="line">        minNeighbors=5,     </span><br><span class="line">        minSize=(20, 20)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+
+<p>其中：<br>gray 表示输入 grayscale 图像。<br>scaleFactor 表示每个图像缩减的比例大小。<br>minNeighbors 表示每个备选矩形框具备的邻近数量。数字越大，假正类越少。<br>minSize 表示人脸识别的最小矩形大小。</p>
+<p>该函数将检测图像中的人脸。接下来，我们必须「标记」图像中的人脸，比如，用蓝色矩形。使用下列代码完成这一步：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for (x,y,w,h) in faces:</span><br><span class="line">    cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)</span><br><span class="line">    roi_gray = gray[y:y+h, x:x+w]</span><br><span class="line">    roi_color = img[y:y+h, x:x+w]</span><br></pre></td></tr></table></figure>
+
+<p>如果已经标记好人脸，则函数将检测到的人脸的位置返回为一个矩形，左上角 (x,y)，w 表示宽度，h 表示高度 ==&gt; (x,y,w,h)。详见下图。</p>
+<p><img src="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332300-0.jpg" alt="p6"><br>得到这些位置信息后，我们可以为人脸创建一个「感兴趣区域」（绘制矩形），用 imshow() 函数呈现结果。使用树莓派终端，在你的 Python 环境中运行上面的 Python 脚本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python faceDetection.py</span><br></pre></td></tr></table></figure>
+
+<p>你也可以加入诸如「眼睛检测」甚至「微笑检测」这样的检测器。在那些用例中，你需要把分类器函数和矩形框内加入原有的面部识别区域中，因为在区域外进行识别没有意义。<br>注意，在树莓派上，分类方法（HaarCascades）会消耗大量算力，所以在同一代码中使用多个分类器将会显著减慢处理速度。在台式机上运行这些算法则非常容易。<br><img src="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332708-0.jpg" alt="p7"><br>要想深入理解面部识别，可以参考这一教程：<a href="https://pythonprogramming.net/haar-cascade-face-eye-detection-python-opencv-tutorial/" target="_blank" rel="noopener">Haar Cascade Object Detection Face &amp; Eye OpenCV Python Tutorial</a><br>第5步：收集数据<br>我推荐各位读者可以查看以下两个关于人脸识别的教程：<br>使用 OpenCV 和 Python 从头实现人脸识别：<a href="https://www.superdatascience.com/opencv-face-recognition/" target="_blank" rel="noopener">superdatascience.com</a><br>理解人脸识别：<a href="https://thecodacus.com/category/opencv/face-recognition/" target="_blank" rel="noopener">thecodacus.com</a></p>
+<p>现在，我们项目的第一步是创建一个简单的数据集，该数据集将储存每张人脸的 ID 和一组用于人脸检测的灰度图。<br><img src="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332897-0.jpg" alt="p7"></p>
+<p>更多详细的代码请查看 <a href="https://github.com/Mjrovai/OpenCV-Face-Recognition" target="_blank" rel="noopener">GitHub 地址</a></p>
+<p>以后我会持续更新</p>
+<p><a href="http://shumeipai.nxez.com/2018/03/09/real-time-face-recognition-an-end-to-end-project-with-raspberry-pi.html" target="_blank" rel="noopener">原文地址</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/15/用树莓派实现人脸识别/" data-id="cjy42d5cq0003usudug9lzwa9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/15/用树莓派实现人脸识别/" data-id="cjy42pg2f0003fcudu85qgq7x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树莓派/">树莓派</a></li></ul>
