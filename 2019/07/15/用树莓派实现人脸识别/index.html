@@ -18,7 +18,9 @@
 <meta property="og:image" content="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332741-0.jpg">
 <meta property="og:image" content="https://i1.quwj.com/2018/03/09/8aeff39aae7f818e9bffeecdea70fa5d.gif">
 <meta property="og:image" content="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332398-0.jpg">
-<meta property="og:updated_time" content="2019-07-15T07:11:33.405Z">
+<meta property="og:image" content="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332653-0.jpg">
+<meta property="og:image" content="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332798-0.jpg">
+<meta property="og:updated_time" content="2019-07-15T07:25:48.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用树莓派实现实时的人脸检测">
 <meta name="twitter:description" content="本文介绍了如何在树莓派上，使用 OpenCV 和 Python 完成人脸检测项目。该项目不仅描述了识别人脸所需要的具体步骤，同时还提供了很多扩展知识。此外，该项目并不需要读者了解详细的人脸识别理论知识，因此初学者也能轻松跟着步骤实现。 项目所需设备硬件：树莓派3树莓派摄像头模块（PiCam） 语言和库:OpenCVPython 3 本文主要讲述如何使用 PiCam 实现实时人脸识别，如下图所示:">
@@ -102,12 +104,49 @@
 <p><img src="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332398-0.jpg" alt="p3"></p>
 <p>第1步：材料清单<br>主件：<br>树莓派3<br>500 万像素 1080p 传感器 OV5647 迷你摄像头模块</p>
 <p>第2步：安装OpenCV 3包<br>我使用的是更新了最新版树莓派系统（Stretch）的树莓派 V3，因此安装 OpenCV 的最佳方式是按照 Adrian Rosebrock 写的教程来进行：《Raspbian Stretch: Install OpenCV 3 + Python on your Raspberry Pi》。经过几次尝试后，我觉得Adrian的教程最好，建议按照该教程一步步来安装。</p>
-<p>完成上述教程之后，你应该安装好了 OpenCV 虚拟环境，可用于在树莓派设备上运行本次实验。<br>我们来到虚拟环境，确认 OpenCV 3 已经正确安装。<br>Adrian 推荐在每次打开新的终端时都运行命令行「source」，以确保系统变量都得到正确设置。<br><code>source ~/.profile</code></p>
+<p>完成上述教程之后，你应该安装好了 OpenCV 虚拟环境，可用于在树莓派设备上运行本次实验。<br>我们来到虚拟环境，确认 OpenCV 3 已经正确安装。<br>Adrian 推荐在每次打开新的终端时都运行命令行「source」，以确保系统变量都得到正确设置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.profile</span><br></pre></td></tr></table></figure>
+
+<p>然后，我们进入虚拟环境：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">workon cv</span><br></pre></td></tr></table></figure>
+
+<p>如果你看到 (cv) 出现在提示符之前，那么你就进入了 cv 虚拟环境：<br><code>(cv) pi@raspberry:~$</code><br>Adrian 希望大家注意 cv Python 虚拟环境是完全独立的，且与 Raspbian Stretch 中包含的默认 Python 版本彼此隔绝。因此，全局站点包目录中的任意 Python 包对于 cv 虚拟环境而言都是不可用的。类似地，cv 站点包中的任意 Python 包对于全局 Python 包安装也都是不可用的。</p>
+<p>现在，进入 Python 解释器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python</span><br></pre></td></tr></table></figure>
+
+<p>确认你正在运行3.5（或以上）版本。</p>
+<p>在解释器内部（将出现&gt;&gt;&gt;），导入 OpenCV 库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import cv2</span><br></pre></td></tr></table></figure>
+
+<p>如果没有错误信息，则 OpenCV 已在你的 Python 虚拟环境中正确安装。</p>
+<p>你还可以检查已安装的 OpenCV 版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.__version__</span><br></pre></td></tr></table></figure>
+
+<p>将会出现3.3.0（或未来有可能发布更高版本）。<br><img src="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332653-0.jpg" alt="p4"><br>上面的终端截图显示了以上步骤。</p>
+<p>第3步：测试摄像头<br>在树莓派上安装 OpenCV 之后，我们测试一下，以确认摄像头正常运转。假设你已经在树莓派上安装了 PiCam。</p>
+<p>在 IDE 中输入下列 Python 代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import cv2</span><br><span class="line"> </span><br><span class="line">cap = cv2.VideoCapture(0)</span><br><span class="line">cap.set(3,640) # set Width</span><br><span class="line">cap.set(4,480) # set Height</span><br><span class="line">  </span><br><span class="line">while(True):</span><br><span class="line">    ret, frame = cap.read()</span><br><span class="line">    frame = cv2.flip(frame, -1) # Flip camera vertically</span><br><span class="line">    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)</span><br><span class="line">     </span><br><span class="line">    cv2.imshow(&apos;frame&apos;, frame)</span><br><span class="line">    cv2.imshow(&apos;gray&apos;, gray)</span><br><span class="line">     </span><br><span class="line">    k = cv2.waitKey(30) &amp; 0xff</span><br><span class="line">    if k == 27: # press &apos;ESC&apos; to quit</span><br><span class="line">        break</span><br><span class="line"> </span><br><span class="line">cap.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码可捕捉PiCam生成的视频流，用BGR颜色和灰色模式展示。<br>注意：我按照组装方式垂直旋转了摄像头。如果你的情况并非如此，那么注释或删除「flip」命令行。<br>你还可以从我的 GitHub <a href="https://github.com/Mjrovai/OpenCV-Object-Face-Tracking/blob/master/simpleCamTest.py" target="_blank" rel="noopener">下载代码</a></p>
+<p>输入下面的命令行，开始执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python simpleCamTest.py</span><br></pre></td></tr></table></figure>
+
+<p>要完成该程序，你必须在键盘上按 [ESC] 键。在按 [ESC] 键之前，先鼠标点击视频窗口。<br><img src="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332798-0.jpg" alt="p5"><br>上图展示了结果。</p>
+<p>想更多地了解 OpenCV，请<a href="https://pythonprogramming.net/loading-video-python-opencv-tutorial/" target="_blank" rel="noopener">查看该教程</a></p>
+<p>##第4步：人脸检测</p>
+<p>人脸识别的最基础任务是「人脸检测」。你必须首先「捕捉」人脸（第 1 阶段）才能在未来与捕捉到的新人脸对比时（第 3 阶段）识别它。<br>最常见的人脸检测方式是使用「Haar 级联分类器」。使用基于 Haar 特征的级联分类器的目标检测是 Paul Viola 和 Michael Jones 2001 年在论文《Rapid Object Detection using a Boosted Cascade of Simple Features》中提出的一种高效目标检测方法。这种机器学习方法基于大量正面、负面图像训练级联函数，然后用于检测其他图像中的对象。这里，我们将用它进行人脸识别。最初，该算法需要大量正类图像（人脸图像）和负类图像（不带人脸的图像）来训练分类器。然后我们需要从中提取特征。好消息是 OpenCV 具备训练器和检测器。如果你想要训练自己的对象分类器，如汽车、飞机等，你可以使用 OpenCV 创建一个。<br>详情参见：<a href="https://docs.opencv.org/3.3.0/dc/d88/tutorial_traincascade.html" target="_blank" rel="noopener">Cascade Classifier Training</a><br>如果不想创建自己的分类器，OpenCV 也包含很多预训练分类器，可用于人脸、眼睛、笑容等的检测。相关的 XML 文件可从该目录下载：<a href="https://github.com/Mjrovai/OpenCV-Face-Recognition/blob/master/FaceDetection/faceDetection.py" target="_blank" rel="noopener">haarcascades</a><br>下面，我们就开始用 OpenCV 创建人脸检测器吧！</p>
+<p>从我的 GitHub 下载文件 <a href="https://github.com/Mjrovai/OpenCV-Face-Recognition/blob/master/FaceDetection/faceDetection.py" target="_blank" rel="noopener">faceDetection.py</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import cv2</span><br><span class="line"> </span><br><span class="line">faceCascade = cv2.CascadeClassifier(&apos;Cascades/haarcascade_frontalface_default.xml&apos;)</span><br><span class="line"> </span><br><span class="line">cap = cv2.VideoCapture(0)</span><br><span class="line">cap.set(3,640) # set Width</span><br><span class="line">cap.set(4,480) # set Height</span><br><span class="line"> </span><br><span class="line">while True:</span><br><span class="line">    ret, img = cap.read()</span><br><span class="line">    img = cv2.flip(img, -1)</span><br><span class="line">    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span><br><span class="line">    faces = faceCascade.detectMultiScale(</span><br><span class="line">        gray,     </span><br><span class="line">        scaleFactor=1.2,</span><br><span class="line">        minNeighbors=5,     </span><br><span class="line">        minSize=(20, 20)</span><br><span class="line">    )</span><br><span class="line"> </span><br><span class="line">    for (x,y,w,h) in faces:</span><br><span class="line">        cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)</span><br><span class="line">        roi_gray = gray[y:y+h, x:x+w]</span><br><span class="line">        roi_color = img[y:y+h, x:x+w]  </span><br><span class="line"> </span><br><span class="line">    cv2.imshow(&apos;video&apos;,img)</span><br><span class="line"> </span><br><span class="line">    k = cv2.waitKey(30) &amp; 0xff</span><br><span class="line">    if k == 27: # press &apos;ESC&apos; to quit</span><br><span class="line">        break</span><br><span class="line"> </span><br><span class="line">cap.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+<p>使用 Python 和 OpenCV 执行人脸检测，上面的几行代码就足够了。注意下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">faceCascade = cv2.CascadeClassifier(&apos;Cascades/haarcascade_frontalface_default.xml&apos;)</span><br></pre></td></tr></table></figure>
+
+<p>这行代码可以加载「分类器」（必须在项目文件夹下面的 Cascades/目录中）。然后，我们在在循环内部调<br>摄像头，并以 grayscale 模式加载我们的输入视频。现在，我们必须调用分类器函数，向其输入一些非常重<br>要的参数，如比例因子、邻近数和人脸检测的最小尺寸。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/15/用树莓派实现人脸识别/" data-id="cjy41v2630001u0udfi520mbv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/15/用树莓派实现人脸识别/" data-id="cjy42d5cq0003usudug9lzwa9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树莓派/">树莓派</a></li></ul>
