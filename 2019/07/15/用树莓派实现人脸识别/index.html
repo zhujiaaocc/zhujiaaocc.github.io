@@ -5,15 +5,24 @@
   
 
   
-  <title>朱家奥&#39;s Blog</title>
+  <title>用树莓派实现实时的人脸检测 | 朱家奥&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="朱家奥&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="本文介绍了如何在树莓派上，使用 OpenCV 和 Python 完成人脸检测项目。该项目不仅描述了识别人脸所需要的具体步骤，同时还提供了很多扩展知识。此外，该项目并不需要读者了解详细的人脸识别理论知识，因此初学者也能轻松跟着步骤实现。 项目所需设备硬件：树莓派3树莓派摄像头模块（PiCam） 语言和库:OpenCVPython 3 本文主要讲述如何使用 PiCam 实现实时人脸识别，如下图所示:">
+<meta name="keywords" content="树莓派">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用树莓派实现实时的人脸检测">
+<meta property="og:url" content="http://yoursite.com/2019/07/15/用树莓派实现人脸识别/index.html">
 <meta property="og:site_name" content="朱家奥&#39;s Blog">
+<meta property="og:description" content="本文介绍了如何在树莓派上，使用 OpenCV 和 Python 完成人脸检测项目。该项目不仅描述了识别人脸所需要的具体步骤，同时还提供了很多扩展知识。此外，该项目并不需要读者了解详细的人脸识别理论知识，因此初学者也能轻松跟着步骤实现。 项目所需设备硬件：树莓派3树莓派摄像头模块（PiCam） 语言和库:OpenCVPython 3 本文主要讲述如何使用 PiCam 实现实时人脸识别，如下图所示:">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332741-0.jpg">
+<meta property="og:image" content="https://i1.quwj.com/2018/03/09/8aeff39aae7f818e9bffeecdea70fa5d.gif">
+<meta property="og:image" content="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332398-0.jpg">
+<meta property="og:updated_time" content="2019-07-15T07:11:33.405Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="朱家奥&#39;s Blog">
+<meta name="twitter:title" content="用树莓派实现实时的人脸检测">
+<meta name="twitter:description" content="本文介绍了如何在树莓派上，使用 OpenCV 和 Python 完成人脸检测项目。该项目不仅描述了识别人脸所需要的具体步骤，同时还提供了很多扩展知识。此外，该项目并不需要读者了解详细的人脸识别理论知识，因此初学者也能轻松跟着步骤实现。 项目所需设备硬件：树莓派3树莓派摄像头模块（PiCam） 语言和库:OpenCVPython 3 本文主要讲述如何使用 PiCam 实现实时人脸识别，如下图所示:">
+<meta name="twitter:image" content="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332741-0.jpg">
   
     <link rel="alternate" href="/atom.xml" title="朱家奥&#39;s Blog" type="application/atom+xml">
   
@@ -60,9 +69,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-用树莓派实现人脸识别" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-用树莓派实现人脸识别" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/15/用树莓派实现人脸识别/" class="article-date">
   <time datetime="2019-07-15T06:59:24.000Z" itemprop="datePublished">2019-07-15</time>
@@ -75,8 +82,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/15/用树莓派实现人脸识别/">用树莓派实现实时的人脸检测</a>
+    <h1 class="article-title" itemprop="name">
+      用树莓派实现实时的人脸检测
     </h1>
   
 
@@ -108,132 +115,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-我的第一篇博文" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/15/我的第一篇博文/" class="article-date">
-  <time datetime="2019-07-15T04:08:20.000Z" itemprop="datePublished">2019-07-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/15/我的第一篇博文/">我的第一篇博文</a>
-    </h1>
+    <a href="/2019/07/15/我的第一篇博文/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">我的第一篇博文</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/15/我的第一篇博文/" data-id="cjy41v2650002u0udgac9kjtw" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-My-New-Post" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/15/My-New-Post/" class="article-date">
-  <time datetime="2019-07-15T01:27:40.000Z" itemprop="datePublished">2019-07-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/15/My-New-Post/">My New Post</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/15/My-New-Post/" data-id="cjy41v25y0000u0uduoouzxvm" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/14/hello-world/" class="article-date">
-  <time datetime="2019-07-14T13:41:13.612Z" itemprop="datePublished">2019-07-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/14/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/14/hello-world/" data-id="cjy41v2680004u0ud10pma2bg" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
