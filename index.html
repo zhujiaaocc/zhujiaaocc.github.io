@@ -145,139 +145,30 @@
 
 <p>你也可以加入诸如「眼睛检测」甚至「微笑检测」这样的检测器。在那些用例中，你需要把分类器函数和矩形框内加入原有的面部识别区域中，因为在区域外进行识别没有意义。<br>注意，在树莓派上，分类方法（HaarCascades）会消耗大量算力，所以在同一代码中使用多个分类器将会显著减慢处理速度。在台式机上运行这些算法则非常容易。<br><img src="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332708-0.jpg" alt="p7"><br>要想深入理解面部识别，可以参考这一教程：<a href="https://pythonprogramming.net/haar-cascade-face-eye-detection-python-opencv-tutorial/" target="_blank" rel="noopener">Haar Cascade Object Detection Face &amp; Eye OpenCV Python Tutorial</a><br>第5步：收集数据<br>我推荐各位读者可以查看以下两个关于人脸识别的教程：<br>使用 OpenCV 和 Python 从头实现人脸识别：<a href="https://www.superdatascience.com/opencv-face-recognition/" target="_blank" rel="noopener">superdatascience.com</a><br>理解人脸识别：<a href="https://thecodacus.com/category/opencv/face-recognition/" target="_blank" rel="noopener">thecodacus.com</a></p>
 <p>现在，我们项目的第一步是创建一个简单的数据集，该数据集将储存每张人脸的 ID 和一组用于人脸检测的灰度图。<br><img src="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332897-0.jpg" alt="p7"></p>
-<p>更多详细的代码请查看 <a href="https://github.com/Mjrovai/OpenCV-Face-Recognition" target="_blank" rel="noopener">GitHub 地址</a></p>
-<p>以后我会持续更新</p>
-<p><a href="http://shumeipai.nxez.com/2018/03/09/real-time-face-recognition-an-end-to-end-project-with-raspberry-pi.html" target="_blank" rel="noopener">原文地址</a></p>
+<p>让我们从<a href="https://github.com/Mjrovai/OpenCV-Face-Recognition/blob/master/FacialRecognition/03_face_recognition.py" target="_blank" rel="noopener">GitHub</a>上下载第三阶段的 python 脚本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">import cv2</span><br><span class="line">import numpy as np</span><br><span class="line">import os </span><br><span class="line"> </span><br><span class="line">recognizer = cv2.face.LBPHFaceRecognizer_create()</span><br><span class="line">recognizer.read(&apos;trainer/trainer.yml&apos;)</span><br><span class="line">cascadePath = &quot;haarcascade_frontalface_default.xml&quot;</span><br><span class="line">faceCascade = cv2.CascadeClassifier(cascadePath);</span><br><span class="line"> </span><br><span class="line">font = cv2.FONT_HERSHEY_SIMPLEX</span><br><span class="line"> </span><br><span class="line">#iniciate id counter</span><br><span class="line">id = 0</span><br><span class="line"> </span><br><span class="line"># names related to ids: example ==&gt; Marcelo: id=1,  etc</span><br><span class="line">names = [&apos;None&apos;, &apos;Marcelo&apos;, &apos;Paula&apos;, &apos;Ilza&apos;, &apos;Z&apos;, &apos;W&apos;] </span><br><span class="line"> </span><br><span class="line"># Initialize and start realtime video capture</span><br><span class="line">cam = cv2.VideoCapture(0)</span><br><span class="line">cam.set(3, 640) # set video widht</span><br><span class="line">cam.set(4, 480) # set video height</span><br><span class="line"> </span><br><span class="line"># Define min window size to be recognized as a face</span><br><span class="line">minW = 0.1*cam.get(3)</span><br><span class="line">minH = 0.1*cam.get(4)</span><br><span class="line"> </span><br><span class="line">while True:</span><br><span class="line">    ret, img =cam.read()</span><br><span class="line">    img = cv2.flip(img, -1) # Flip vertically</span><br><span class="line">    gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)</span><br><span class="line">     </span><br><span class="line">    faces = faceCascade.detectMultiScale( </span><br><span class="line">        gray,</span><br><span class="line">        scaleFactor = 1.2,</span><br><span class="line">        minNeighbors = 5,</span><br><span class="line">        minSize = (int(minW), int(minH)),</span><br><span class="line">       )</span><br><span class="line"> </span><br><span class="line">    for(x,y,w,h) in faces:</span><br><span class="line">        cv2.rectangle(img, (x,y), (x+w,y+h), (0,255,0), 2)</span><br><span class="line">        id, confidence = recognizer.predict(gray[y:y+h,x:x+w])</span><br><span class="line"> </span><br><span class="line">        # Check if confidence is less them 100 ==&gt; &quot;0&quot; is perfect match </span><br><span class="line">        if (confidence &lt; 100):</span><br><span class="line">            id = names[id]</span><br><span class="line">            confidence = &quot;  &#123;0&#125;%&quot;.format(round(100 - confidence))</span><br><span class="line">        else:</span><br><span class="line">            id = &quot;unknown&quot;</span><br><span class="line">            confidence = &quot;  &#123;0&#125;%&quot;.format(round(100 - confidence))</span><br><span class="line">         </span><br><span class="line">        cv2.putText(img, str(id), (x+5,y-5), font, 1, (255,255,255), 2)</span><br><span class="line">        cv2.putText(img, str(confidence), (x+5,y+h-5), font, 1, (255,255,0), 1)  </span><br><span class="line">     </span><br><span class="line">    cv2.imshow(&apos;camera&apos;,img) </span><br><span class="line"> </span><br><span class="line">    k = cv2.waitKey(10) &amp; 0xff # Press &apos;ESC&apos; for exiting video</span><br><span class="line">    if k == 27:</span><br><span class="line">        break</span><br><span class="line"> </span><br><span class="line"># Do a bit of cleanup</span><br><span class="line">print(&quot;\n [INFO] Exiting Program and cleanup stuff&quot;)</span><br><span class="line">cam.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+<p>这里我们包含了一个新数组，因此我们将会展示「名称」，而不是编号的 id：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">names = [&apos;None&apos;, &apos;Marcelo&apos;, &apos;Paula&apos;, &apos;Ilza&apos;, &apos;Z&apos;, &apos;W&apos;]</span><br></pre></td></tr></table></figure>
+
+<p>所以，如上所示的列表，Marcelo 的 ID 或索引为 1，Paula 的 ID 等于 2。</p>
+<p>下一步，我们将检测一张人脸，正如我们在之前的 haasCascade 分类器中所做的那样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id, confidence = recognizer.predict(gray portion of the face)</span><br></pre></td></tr></table></figure>
+
+<p>recognizer.predict () 将把待分析人脸的已捕捉部分作为一个参数，并返回其可能的所有者，指示其 id 以及识别器与这一匹配相关的置信度。<br>注意，如果匹配是完美的，置信度指数将返回「零」。</p>
+<p>最后，如果识别器可以预测人脸，我们将在图像上放置一个文本，带有可能的 id，以及匹配是否正确的概率（概率=100 – 置信度指数）。如果没有，则把「未知」的标签放在人脸上。</p>
+<p>下面是这一结果的图片：<br><img src="https://i1.quwj.com/2018/03/09/8aeff39aae7f818e9bffeecdea70fa5d.gif" alt="p8"><br>在这张图像上，我展示了一些由该项目完成的测试，其中我也使用图像验证识别器是否有效。<br><img src="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332857-0.jpg" alt="p9"></p>
+<p>第 8 步：结语<br>我希望该项目能帮助其他人发现更好玩的项目，也希望有助于各位读者实现自己的人脸识别应用。</p>
+<p>更多详细的代码请查看 <a href="https://github.com/Mjrovai/OpenCV-Face-Recognition" target="_blank" rel="noopener">GitHub 地址</a><br><a href="http://shumeipai.nxez.com/2018/03/09/real-time-face-recognition-an-end-to-end-project-with-raspberry-pi.html" target="_blank" rel="noopener">原文地址</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/15/用树莓派实现人脸识别/" data-id="cjy42pg2f0003fcudu85qgq7x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/15/用树莓派实现人脸识别/" data-id="cjy5apj7f0000j0udd03nonis" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树莓派/">树莓派</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-我的第一篇博文" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/15/我的第一篇博文/" class="article-date">
-  <time datetime="2019-07-15T04:08:20.000Z" itemprop="datePublished">2019-07-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/15/我的第一篇博文/">我的第一篇博文</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/15/我的第一篇博文/" data-id="cjy42pg2d0002fcudkn4w3ier" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-My-New-Post" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/15/My-New-Post/" class="article-date">
-  <time datetime="2019-07-15T01:27:40.000Z" itemprop="datePublished">2019-07-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/15/My-New-Post/">My New Post</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/15/My-New-Post/" data-id="cjy42pg260000fcudfegftujo" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/14/hello-world/" class="article-date">
-  <time datetime="2019-07-14T13:41:13.612Z" itemprop="datePublished">2019-07-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/14/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/14/hello-world/" data-id="cjy42pg2b0001fcudxd4dlzcq" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -331,18 +222,6 @@
         
           <li>
             <a href="/2019/07/15/用树莓派实现人脸识别/">用树莓派实现实时的人脸检测</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/15/我的第一篇博文/">我的第一篇博文</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/15/My-New-Post/">My New Post</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/14/hello-world/">Hello World</a>
           </li>
         
       </ul>
