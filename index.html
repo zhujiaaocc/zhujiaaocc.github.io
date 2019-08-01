@@ -1,351 +1,678 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="">
+
+
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="utf-8">
-  
+    <meta charset="utf-8">
+    <meta name="keywords" content="朱家奥&#39;s Blog">
+    <meta name="description" content="朱家奥&#39;s Blog">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>朱家奥&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-  
-  <title>朱家奥&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="朱家奥&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="朱家奥&#39;s Blog">
-<meta property="og:locale" content="default">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="朱家奥&#39;s Blog">
-  
-    <link rel="alternate" href="/atom.xml" title="朱家奥&#39;s Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 </head>
-</html>
+
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">朱家奥&#39;s Blog</a>
-      </h1>
-      
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">朱家奥's Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>Friends</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">朱家奥's Blog</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
         
-          <a class="main-nav-link" href="/">Home</a>
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
         
-      </nav>
-      <nav id="sub-nav">
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                Friends
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
 </header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-测试网速" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/31/测试网速/" class="article-date">
-  <time datetime="2019-07-31T03:07:01.000Z" itemprop="datePublished">2019-07-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/31/测试网速/">测试网速</a>
-    </h1>
-  
 
-      </header>
+
+<style>
+    .carousel-control {
+        width: 45px;
+        height: 45px;
+        line-height: 55px;
+        border-radius: 45px;
+        background: transparent;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    #prev-cover {
+        position: absolute;
+        top: 48%;
+        left: 8px;
+    }
+
+    #next-cover {
+        position: absolute;
+        top: 48%;
+        right: 8px;;
+    }
+
+    #prev-cover i {
+        margin-right: 3px;
+    }
+
+    #next-cover i {
+        margin-left: 3px;
+    }
+
+    .carousel-control:hover {
+        background-color:rgba(0, 0, 0, .4);
+    }
+
+    .carousel-control i {
+        color: #fff;
+        font-size: 2.4rem;
+    }
+</style>
+
+
+
+<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <iframe src="https://plugin.speedtest.cn/#fff" frameborder="no" scrolling="no" style="width: 550px; height: 610px;"></iframe>
-      
+
+    <div class="carousel-item red white-text bg-cover about-cover">
+        <div class="container">
+            <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                    subtitle
+                
+            </div>
+
+            <div class="description center-align">
+                
+                    This is your root _config.yml 'description' value.
+                
+            </div>
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/31/测试网速/" data-id="cjyqo6hav0001xcudr4s1bq5p" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络/">网络</a></li></ul>
+</div>
+<script>
+// 每天切换 banner 图.  Switch banner image every day.
+$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+</script>
 
-    </footer>
-  </div>
-  
-</article>
+            <div class="cover-btns">
+                <a href="#indexCard" class="waves-effect waves-light btn">
+                    <i class="fa fa-angle-double-down"></i>Start
+                </a>
+
+                
+                <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light btn" target="_blank">
+                    <i class="fa fa-github-alt"></i>Github
+                </a>
+                
+            </div>
+            <div class="cover-social-link">
 
 
-  
-    <article id="post-树莓派安装Windows10-Arm" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/17/树莓派安装Windows10-Arm/" class="article-date">
-  <time datetime="2019-07-17T02:32:42.000Z" itemprop="datePublished">2019-07-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/17/树莓派安装Windows10-Arm/">树莓派安装Windows10 Arm</a>
-    </h1>
-  
+    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/17/树莓派安装Windows10-Arm/" data-id="cjyqo6haq0000xcuda22l1j6n" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树莓派/">树莓派</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
+    
+</div>
 
+<script>
+$(function () {
+    let coverSlider = $('.carousel');
+    coverSlider.carousel({
+        duration: Number('120'),
+        fullWidth: true,
+        indicators: 'true' === 'true'
+    });
 
-  
-    <article id="post-用树莓派实现人脸识别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/15/用树莓派实现人脸识别/" class="article-date">
-  <time datetime="2019-07-15T06:59:24.000Z" itemprop="datePublished">2019-07-15</time>
-</a>
+    let carouselIntervalId;
     
-  </div>
-  <div class="article-inner">
+    // Loop to call the next cover article picture.
+    let autoCarousel = function() {
+        carouselIntervalId = setInterval(function () {
+            coverSlider.carousel('next');
+        }, 5000);
+    };
+    autoCarousel();
     
-    
-      <header class="article-header">
+
+    let restartPlay = function () {
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/15/用树莓派实现人脸识别/">用树莓派实现实时的人脸检测</a>
-    </h1>
-  
+        clearInterval(carouselIntervalId);
+        autoCarousel();
+        
+    };
 
-      </header>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332741-0.jpg" alt="p1"><br>本文介绍了如何在树莓派上，使用 OpenCV 和 Python 完成人脸检测项目。该项目不仅描述了识别人脸所需要的具体步骤，同时还提供了很多扩展知识。此外，该项目并不需要读者了解详细的人脸识别理论知识，因此初学者也能轻松跟着步骤实现。</p>
-<p>项目所需设备<br>硬件：<br>树莓派3<br>树莓派摄像头模块（PiCam）</p>
-<p>语言和库:<br>OpenCV<br>Python 3</p>
-<p>本文主要讲述如何使用 PiCam 实现实时人脸识别，如下图所示:</p>
-<p><img src="https://i1.quwj.com/2018/03/09/8aeff39aae7f818e9bffeecdea70fa5d.gif" alt="p2"></p>
-<p>本教程使用 OpenCV 完成，一个神奇的「开源计算机视觉库」，并主要关注树莓派（因此，操作系统是树莓派系统）和 Python，但是我也在 Mac 电脑上测试了代码，同样运行很好。OpenCV 具备很强的计算效率，且专门用于实时应用。因此，它非常适合使用摄像头的实时人脸识别。要创建完整的人脸识别项目，我们必须完成3个阶段：</p>
-<p>1）人脸检测和数据收集；<br>2）训练识别器；<br>3）人脸识别。</p>
-<p>如下图所示：</p>
-<p><img src="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332398-0.jpg" alt="p3"></p>
-<p>第1步：材料清单<br>主件：<br>树莓派3<br>500 万像素 1080p 传感器 OV5647 迷你摄像头模块</p>
-<p>第2步：安装OpenCV 3包<br>我使用的是更新了最新版树莓派系统（Stretch）的树莓派 V3，因此安装 OpenCV 的最佳方式是按照 Adrian Rosebrock 写的教程来进行：《Raspbian Stretch: Install OpenCV 3 + Python on your Raspberry Pi》。经过几次尝试后，我觉得Adrian的教程最好，建议按照该教程一步步来安装。</p>
-<p>完成上述教程之后，你应该安装好了 OpenCV 虚拟环境，可用于在树莓派设备上运行本次实验。<br>我们来到虚拟环境，确认 OpenCV 3 已经正确安装。<br>Adrian 推荐在每次打开新的终端时都运行命令行「source」，以确保系统变量都得到正确设置。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.profile</span><br></pre></td></tr></table></figure>
+    // prev and next cover post.
+    $('#prev-cover').click(function () {
+        coverSlider.carousel('prev');
+        restartPlay();
+    });
+    $('#next-cover').click(function () {
+        coverSlider.carousel('next');
+        restartPlay();
+    });
+    
+});
+</script>
 
-<p>然后，我们进入虚拟环境：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">workon cv</span><br></pre></td></tr></table></figure>
 
-<p>如果你看到 (cv) 出现在提示符之前，那么你就进入了 cv 虚拟环境：<br><code>(cv) pi@raspberry:~$</code><br>Adrian 希望大家注意 cv Python 虚拟环境是完全独立的，且与 Raspbian Stretch 中包含的默认 Python 版本彼此隔绝。因此，全局站点包目录中的任意 Python 包对于 cv 虚拟环境而言都是不可用的。类似地，cv 站点包中的任意 Python 包对于全局 Python 包安装也都是不可用的。</p>
-<p>现在，进入 Python 解释器：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python</span><br></pre></td></tr></table></figure>
 
-<p>确认你正在运行3.5（或以上）版本。</p>
-<p>在解释器内部（将出现&gt;&gt;&gt;），导入 OpenCV 库：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import cv2</span><br></pre></td></tr></table></figure>
+<main class="content">
 
-<p>如果没有错误信息，则 OpenCV 已在你的 Python 虚拟环境中正确安装。</p>
-<p>你还可以检查已安装的 OpenCV 版本：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.__version__</span><br></pre></td></tr></table></figure>
-
-<p>将会出现3.3.0（或未来有可能发布更高版本）。<br><img src="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332653-0.jpg" alt="p4"><br>上面的终端截图显示了以上步骤。</p>
-<p>第3步：测试摄像头<br>在树莓派上安装 OpenCV 之后，我们测试一下，以确认摄像头正常运转。假设你已经在树莓派上安装了 PiCam。</p>
-<p>在 IDE 中输入下列 Python 代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import cv2</span><br><span class="line"> </span><br><span class="line">cap = cv2.VideoCapture(0)</span><br><span class="line">cap.set(3,640) # set Width</span><br><span class="line">cap.set(4,480) # set Height</span><br><span class="line">  </span><br><span class="line">while(True):</span><br><span class="line">    ret, frame = cap.read()</span><br><span class="line">    frame = cv2.flip(frame, -1) # Flip camera vertically</span><br><span class="line">    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)</span><br><span class="line">     </span><br><span class="line">    cv2.imshow(&apos;frame&apos;, frame)</span><br><span class="line">    cv2.imshow(&apos;gray&apos;, gray)</span><br><span class="line">     </span><br><span class="line">    k = cv2.waitKey(30) &amp; 0xff</span><br><span class="line">    if k == 27: # press &apos;ESC&apos; to quit</span><br><span class="line">        break</span><br><span class="line"> </span><br><span class="line">cap.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
-
-<p>上面的代码可捕捉PiCam生成的视频流，用BGR颜色和灰色模式展示。<br>注意：我按照组装方式垂直旋转了摄像头。如果你的情况并非如此，那么注释或删除「flip」命令行。<br>你还可以从我的 GitHub <a href="https://github.com/Mjrovai/OpenCV-Object-Face-Tracking/blob/master/simpleCamTest.py" target="_blank" rel="noopener">下载代码</a></p>
-<p>输入下面的命令行，开始执行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python simpleCamTest.py</span><br></pre></td></tr></table></figure>
-
-<p>要完成该程序，你必须在键盘上按 [ESC] 键。在按 [ESC] 键之前，先鼠标点击视频窗口。<br><img src="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332798-0.jpg" alt="p5"><br>上图展示了结果。</p>
-<p>想更多地了解 OpenCV，请<a href="https://pythonprogramming.net/loading-video-python-opencv-tutorial/" target="_blank" rel="noopener">查看该教程</a></p>
-<p>第4步：人脸检测</p>
-<p>人脸识别的最基础任务是「人脸检测」。你必须首先「捕捉」人脸（第 1 阶段）才能在未来与捕捉到的新人脸对比时（第 3 阶段）识别它。<br>最常见的人脸检测方式是使用「Haar 级联分类器」。使用基于 Haar 特征的级联分类器的目标检测是 Paul Viola 和 Michael Jones 2001 年在论文《Rapid Object Detection using a Boosted Cascade of Simple Features》中提出的一种高效目标检测方法。这种机器学习方法基于大量正面、负面图像训练级联函数，然后用于检测其他图像中的对象。这里，我们将用它进行人脸识别。最初，该算法需要大量正类图像（人脸图像）和负类图像（不带人脸的图像）来训练分类器。然后我们需要从中提取特征。好消息是 OpenCV 具备训练器和检测器。如果你想要训练自己的对象分类器，如汽车、飞机等，你可以使用 OpenCV 创建一个。<br>详情参见：<a href="https://docs.opencv.org/3.3.0/dc/d88/tutorial_traincascade.html" target="_blank" rel="noopener">Cascade Classifier Training</a><br>如果不想创建自己的分类器，OpenCV 也包含很多预训练分类器，可用于人脸、眼睛、笑容等的检测。相关的 XML 文件可从该目录下载：<a href="https://github.com/Mjrovai/OpenCV-Face-Recognition/blob/master/FaceDetection/faceDetection.py" target="_blank" rel="noopener">haarcascades</a><br>下面，我们就开始用 OpenCV 创建人脸检测器吧！</p>
-<p>从我的 GitHub 下载文件 <a href="https://github.com/Mjrovai/OpenCV-Face-Recognition/blob/master/FaceDetection/faceDetection.py" target="_blank" rel="noopener">faceDetection.py</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import cv2</span><br><span class="line"> </span><br><span class="line">faceCascade = cv2.CascadeClassifier(&apos;Cascades/haarcascade_frontalface_default.xml&apos;)</span><br><span class="line"> </span><br><span class="line">cap = cv2.VideoCapture(0)</span><br><span class="line">cap.set(3,640) # set Width</span><br><span class="line">cap.set(4,480) # set Height</span><br><span class="line"> </span><br><span class="line">while True:</span><br><span class="line">    ret, img = cap.read()</span><br><span class="line">    img = cv2.flip(img, -1)</span><br><span class="line">    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span><br><span class="line">    faces = faceCascade.detectMultiScale(</span><br><span class="line">        gray,     </span><br><span class="line">        scaleFactor=1.2,</span><br><span class="line">        minNeighbors=5,     </span><br><span class="line">        minSize=(20, 20)</span><br><span class="line">    )</span><br><span class="line"> </span><br><span class="line">    for (x,y,w,h) in faces:</span><br><span class="line">        cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)</span><br><span class="line">        roi_gray = gray[y:y+h, x:x+w]</span><br><span class="line">        roi_color = img[y:y+h, x:x+w]  </span><br><span class="line"> </span><br><span class="line">    cv2.imshow(&apos;video&apos;,img)</span><br><span class="line"> </span><br><span class="line">    k = cv2.waitKey(30) &amp; 0xff</span><br><span class="line">    if k == 27: # press &apos;ESC&apos; to quit</span><br><span class="line">        break</span><br><span class="line"> </span><br><span class="line">cap.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
-
-<p>使用 Python 和 OpenCV 执行人脸检测，上面的几行代码就足够了。注意下面的代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">faceCascade = cv2.CascadeClassifier(&apos;Cascades/haarcascade_frontalface_default.xml&apos;)</span><br></pre></td></tr></table></figure>
-
-<p>这行代码可以加载「分类器」（必须在项目文件夹下面的 Cascades/目录中）。然后，我们在在循环内部调<br>摄像头，并以 grayscale 模式加载我们的输入视频。现在，我们必须调用分类器函数，向其输入一些非常重<br>要的参数，如比例因子、邻近数和人脸检测的最小尺寸。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">faces = faceCascade.detectMultiScale(</span><br><span class="line">        gray,     </span><br><span class="line">        scaleFactor=1.2,</span><br><span class="line">        minNeighbors=5,     </span><br><span class="line">        minSize=(20, 20)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
-
-<p>其中：<br>gray 表示输入 grayscale 图像。<br>scaleFactor 表示每个图像缩减的比例大小。<br>minNeighbors 表示每个备选矩形框具备的邻近数量。数字越大，假正类越少。<br>minSize 表示人脸识别的最小矩形大小。</p>
-<p>该函数将检测图像中的人脸。接下来，我们必须「标记」图像中的人脸，比如，用蓝色矩形。使用下列代码完成这一步：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for (x,y,w,h) in faces:</span><br><span class="line">    cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)</span><br><span class="line">    roi_gray = gray[y:y+h, x:x+w]</span><br><span class="line">    roi_color = img[y:y+h, x:x+w]</span><br></pre></td></tr></table></figure>
-
-<p>如果已经标记好人脸，则函数将检测到的人脸的位置返回为一个矩形，左上角 (x,y)，w 表示宽度，h 表示高度 ==&gt; (x,y,w,h)。详见下图。</p>
-<p><img src="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332300-0.jpg" alt="p6"><br>得到这些位置信息后，我们可以为人脸创建一个「感兴趣区域」（绘制矩形），用 imshow() 函数呈现结果。使用树莓派终端，在你的 Python 环境中运行上面的 Python 脚本：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python faceDetection.py</span><br></pre></td></tr></table></figure>
-
-<p>你也可以加入诸如「眼睛检测」甚至「微笑检测」这样的检测器。在那些用例中，你需要把分类器函数和矩形框内加入原有的面部识别区域中，因为在区域外进行识别没有意义。<br>注意，在树莓派上，分类方法（HaarCascades）会消耗大量算力，所以在同一代码中使用多个分类器将会显著减慢处理速度。在台式机上运行这些算法则非常容易。<br><img src="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332708-0.jpg" alt="p7"><br>要想深入理解面部识别，可以参考这一教程：<a href="https://pythonprogramming.net/haar-cascade-face-eye-detection-python-opencv-tutorial/" target="_blank" rel="noopener">Haar Cascade Object Detection Face &amp; Eye OpenCV Python Tutorial</a><br>第5步：收集数据<br>我推荐各位读者可以查看以下两个关于人脸识别的教程：<br>使用 OpenCV 和 Python 从头实现人脸识别：<a href="https://www.superdatascience.com/opencv-face-recognition/" target="_blank" rel="noopener">superdatascience.com</a><br>理解人脸识别：<a href="https://thecodacus.com/category/opencv/face-recognition/" target="_blank" rel="noopener">thecodacus.com</a></p>
-<p>现在，我们项目的第一步是创建一个简单的数据集，该数据集将储存每张人脸的 ID 和一组用于人脸检测的灰度图。<br><img src="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332897-0.jpg" alt="p7"></p>
-<p>让我们从<a href="https://github.com/Mjrovai/OpenCV-Face-Recognition/blob/master/FacialRecognition/03_face_recognition.py" target="_blank" rel="noopener">GitHub</a>上下载第三阶段的 python 脚本。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">import cv2</span><br><span class="line">import numpy as np</span><br><span class="line">import os </span><br><span class="line"> </span><br><span class="line">recognizer = cv2.face.LBPHFaceRecognizer_create()</span><br><span class="line">recognizer.read(&apos;trainer/trainer.yml&apos;)</span><br><span class="line">cascadePath = &quot;haarcascade_frontalface_default.xml&quot;</span><br><span class="line">faceCascade = cv2.CascadeClassifier(cascadePath);</span><br><span class="line"> </span><br><span class="line">font = cv2.FONT_HERSHEY_SIMPLEX</span><br><span class="line"> </span><br><span class="line">#iniciate id counter</span><br><span class="line">id = 0</span><br><span class="line"> </span><br><span class="line"># names related to ids: example ==&gt; Marcelo: id=1,  etc</span><br><span class="line">names = [&apos;None&apos;, &apos;Marcelo&apos;, &apos;Paula&apos;, &apos;Ilza&apos;, &apos;Z&apos;, &apos;W&apos;] </span><br><span class="line"> </span><br><span class="line"># Initialize and start realtime video capture</span><br><span class="line">cam = cv2.VideoCapture(0)</span><br><span class="line">cam.set(3, 640) # set video widht</span><br><span class="line">cam.set(4, 480) # set video height</span><br><span class="line"> </span><br><span class="line"># Define min window size to be recognized as a face</span><br><span class="line">minW = 0.1*cam.get(3)</span><br><span class="line">minH = 0.1*cam.get(4)</span><br><span class="line"> </span><br><span class="line">while True:</span><br><span class="line">    ret, img =cam.read()</span><br><span class="line">    img = cv2.flip(img, -1) # Flip vertically</span><br><span class="line">    gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)</span><br><span class="line">     </span><br><span class="line">    faces = faceCascade.detectMultiScale( </span><br><span class="line">        gray,</span><br><span class="line">        scaleFactor = 1.2,</span><br><span class="line">        minNeighbors = 5,</span><br><span class="line">        minSize = (int(minW), int(minH)),</span><br><span class="line">       )</span><br><span class="line"> </span><br><span class="line">    for(x,y,w,h) in faces:</span><br><span class="line">        cv2.rectangle(img, (x,y), (x+w,y+h), (0,255,0), 2)</span><br><span class="line">        id, confidence = recognizer.predict(gray[y:y+h,x:x+w])</span><br><span class="line"> </span><br><span class="line">        # Check if confidence is less them 100 ==&gt; &quot;0&quot; is perfect match </span><br><span class="line">        if (confidence &lt; 100):</span><br><span class="line">            id = names[id]</span><br><span class="line">            confidence = &quot;  &#123;0&#125;%&quot;.format(round(100 - confidence))</span><br><span class="line">        else:</span><br><span class="line">            id = &quot;unknown&quot;</span><br><span class="line">            confidence = &quot;  &#123;0&#125;%&quot;.format(round(100 - confidence))</span><br><span class="line">         </span><br><span class="line">        cv2.putText(img, str(id), (x+5,y-5), font, 1, (255,255,255), 2)</span><br><span class="line">        cv2.putText(img, str(confidence), (x+5,y+h-5), font, 1, (255,255,0), 1)  </span><br><span class="line">     </span><br><span class="line">    cv2.imshow(&apos;camera&apos;,img) </span><br><span class="line"> </span><br><span class="line">    k = cv2.waitKey(10) &amp; 0xff # Press &apos;ESC&apos; for exiting video</span><br><span class="line">    if k == 27:</span><br><span class="line">        break</span><br><span class="line"> </span><br><span class="line"># Do a bit of cleanup</span><br><span class="line">print(&quot;\n [INFO] Exiting Program and cleanup stuff&quot;)</span><br><span class="line">cam.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
-
-<p>这里我们包含了一个新数组，因此我们将会展示「名称」，而不是编号的 id：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">names = [&apos;None&apos;, &apos;Marcelo&apos;, &apos;Paula&apos;, &apos;Ilza&apos;, &apos;Z&apos;, &apos;W&apos;]</span><br></pre></td></tr></table></figure>
-
-<p>所以，如上所示的列表，Marcelo 的 ID 或索引为 1，Paula 的 ID 等于 2。</p>
-<p>下一步，我们将检测一张人脸，正如我们在之前的 haasCascade 分类器中所做的那样。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id, confidence = recognizer.predict(gray portion of the face)</span><br></pre></td></tr></table></figure>
-
-<p>recognizer.predict () 将把待分析人脸的已捕捉部分作为一个参数，并返回其可能的所有者，指示其 id 以及识别器与这一匹配相关的置信度。<br>注意，如果匹配是完美的，置信度指数将返回「零」。</p>
-<p>最后，如果识别器可以预测人脸，我们将在图像上放置一个文本，带有可能的 id，以及匹配是否正确的概率（概率=100 – 置信度指数）。如果没有，则把「未知」的标签放在人脸上。</p>
-<p>下面是这一结果的图片：<br><img src="https://i1.quwj.com/2018/03/09/8aeff39aae7f818e9bffeecdea70fa5d.gif" alt="p8"><br>在这张图像上，我展示了一些由该项目完成的测试，其中我也使用图像验证识别器是否有效。<br><img src="http://shumeipai.nxez.com/wp-content/uploads/2018/03/20180309111332857-0.jpg" alt="p9"></p>
-<p>第 8 步：结语<br>我希望该项目能帮助其他人发现更好玩的项目，也希望有助于各位读者实现自己的人脸识别应用。</p>
-<p>更多详细的代码请查看 <a href="https://github.com/Mjrovai/OpenCV-Face-Recognition" target="_blank" rel="noopener">GitHub 地址</a><br><a href="http://shumeipai.nxez.com/2018/03/09/real-time-face-recognition-an-end-to-end-project-with-raspberry-pi.html" target="_blank" rel="noopener">原文地址</a></p>
-
-      
+    
+    <div id="indexCard" class="index-card">
+        <div class="container ">
+            <div class="card">
+                <div class="card-content">
+                    
+                        <div class="dream">
+    
+    <div class="title center-align">
+        <i class="fa fa-lightbulb-o"></i>&nbsp;&nbsp;我的梦想
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/15/用树莓派实现人脸识别/" data-id="cjyqo6hb60006xcudmlsc2klu" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树莓派/">树莓派</a></li></ul>
+    
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
+            不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
+        </div>
+    </div>
+</div>
+                    
 
-    </footer>
-  </div>
-  
-</article>
+                    
+
+                    
+
+                    <div id="recommend-sections" class="recommend">
+                        
 
 
-  
 
-
-</section>
-        
-          <aside id="sidebar">
-  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
 
-  
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派/">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li></ul>
+
+    <!-- 所有文章卡片 -->
+    <article id="articles" class="container articles">
+        <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/07/31/测试网速/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="测试网速">
+                            
+                            <span class="card-title">测试网速</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-31
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-user fa-fw"></i>
+                                朱家奥
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/网络/" target="_blank">
+                            <span class="chip bg-color">网络</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/07/17/树莓派安装Windows10-Arm/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="树莓派安装Windows10 Arm">
+                            
+                            <span class="card-title">树莓派安装Windows10 Arm</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1.下载Windows10 Arm：链接 提取密码：tfyp2.下载WoR：链接
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-17
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-user fa-fw"></i>
+                                朱家奥
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/树莓派/" target="_blank">
+                            <span class="chip bg-color">树莓派</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/07/15/用树莓派实现人脸识别/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="用树莓派实现实时的人脸检测">
+                            
+                            <span class="card-title">用树莓派实现实时的人脸检测</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                本文介绍了如何在树莓派上，使用 OpenCV 和 Python 完成人脸检测项目。该项目不仅描述了识别人脸所需要的具体步骤，同时还提供了很多扩展知识。此外，该项目并不需要读者了解详细的人脸识别理论知识，因此初学者也能轻松跟着步骤实现。
+项目
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-15
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-user fa-fw"></i>
+                                朱家奥
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/树莓派/" target="_blank">
+                            <span class="chip bg-color">树莓派</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
+
+</main>
+
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/树莓派/" style="font-size: 20px;">树莓派</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/07/31/测试网速/">测试网速</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/17/树莓派安装Windows10-Arm/">树莓派安装Windows10 Arm</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/15/用树莓派实现人脸识别/">用树莓派实现实时的人脸检测</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 朱家奥<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+</div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
 
 
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
 
-  </div>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
 </body>
 </html>
